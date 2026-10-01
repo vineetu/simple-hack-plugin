@@ -1,0 +1,20 @@
+{
+  "name": "simple-hack",
+  "displayName": "Simple Hack",
+  "version": "0.1.1",
+  "description": "Run a hackathon on simple-hack.app: create and manage an event, organise teams and judging, and publish team sites with scoped connections.",
+  "author": {
+    "name": "Vineet Sriram",
+    "url": "https://simple-hack.app/"
+  },
+  "homepage": "https://simple-hack.app/",
+  "repository": "https://github.com/vineetu/simple-hack-plugin",
+  "license": "MIT",
+  "keywords": [
+    "hackathon",
+    "event",
+    "judging",
+    "team-sites",
+    "mcp"
+  ]
+}

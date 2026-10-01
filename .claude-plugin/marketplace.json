@@ -1,0 +1,14 @@
+{
+  "name": "simple-hack-marketplace",
+  "description": "Simple Hack agent workflow",
+  "owner": {
+    "name": "Vineet Sriram"
+  },
+  "plugins": [
+    {
+      "name": "simple-hack",
+      "source": "./",
+      "description": "Run a hackathon on Simple Hack with an agent"
+    }
+  ]
+}

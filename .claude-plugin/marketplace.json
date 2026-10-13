@@ -1,14 +1,18 @@
 {
   "name": "simple-hack-marketplace",
-  "description": "Simple Hack agent workflow",
   "owner": {
-    "name": "Vineet Sriram"
+    "name": "Vineet Sriram",
+    "url": "https://simple-hack.app/"
+  },
+  "metadata": {
+    "description": "Simple Hack for Claude: run, join, or judge a hackathon on simple-hack.app from Claude."
   },
   "plugins": [
     {
       "name": "simple-hack",
       "source": "./",
-      "description": "Run a hackathon on Simple Hack with an agent"
+      "description": "Hackathons, now for everyone. Organise events and judging on simple-hack.app; participants describe their idea and AI builds their team site. No coding needed.",
+      "version": "0.2.12"
     }
   ]
 }

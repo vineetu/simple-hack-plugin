@@ -1,20 +1,38 @@
 # Simple Hack for Claude
 
-Run a hackathon on [simple-hack.app](https://simple-hack.app/). The bundled `run-hackathon` skill guides hosted event setup, team sites, judging, results, and an optional private instance. The `.mcp.json` connector points to the hosted Simple Hack MCP server. Sign in through Claude's connection flow and choose **Manage my events** for organiser work; a participant connects to their team separately for site publishing.
+Run, join, or judge a hackathon on [simple-hack.app](https://simple-hack.app/) from Claude. Participants describe their idea, and Claude builds and publishes their team's website, so the people competing do not need to write code. Organisers set up the event, judges score against the organiser's rubric, and results go out from the same place.
 
-The organiser connection exposes ten tools to list events, check a name, create and read a draft, update page settings and stages, read or replace a rubric, and export judging scores or results. The connector sends tool arguments to `simple-hack.app`; event, team, judge and site data is returned only within the account and role's permissions. A team connection can publish only its selected team's site. Self-hosted setup in the skill may call the chosen cloud provider and DNS provider using the organiser's credentials.
+This plugin bundles five skills and the Simple Hack connector (`https://simple-hack.app/mcp`). The first time Claude needs the connector, a Simple Hack sign-in window opens: sign in with Google or an emailed code, then choose Allow. The plugin asks for no API keys, team keys, or passwords, and it reads nothing from your computer. Each call runs with the signed-in person's own role in each event.
 
-The package contains no credentials. Support is [support@simple-host.app](mailto:support@simple-host.app). The P1 event workflows are deployed on simple-hack.app. This public source is a Claude Code marketplace; no Anthropic directory submission or approval is claimed.
+## Skills
 
-## Install from a public source
+- `run-hackathon`: for organisers. Create an event, set registration questions and tracks, publish the public page, manage teams and judging, post announcements, and publish results.
+- `join-hackathon`: for participants. Join an event, form or join a team, pick a track, fill in the entry, vote, and see results.
+- `judge-hackathon`: for judges. Read the rubric and the queue, score entries, comment, and flag conflicts.
+- `website-deploy-builder`: plans a team site or a custom event website, including what it stores and who can read it.
+- `website-deploy`: builds and publishes that site with the team's or organiser's scoped access.
 
-Add the public source as a Claude Code marketplace, then install the plugin:
+## What people use it for
 
-```text
+- A university society runs a weekend hackathon for 120 students. The organiser asks Claude to create the event, add an AI track and a social impact track, and open registration on Friday.
+- A product team runs an internal innovation day. A product manager on one team says "build our site: an app that matches volunteers to shifts", and Claude publishes it at the team's address before entries close.
+- A panel of three judges each work through their assigned entries in Claude, scoring against the rubric and leaving comments the organiser reviews before publishing results.
+
+## Install in Claude Code
+
+```
 /plugin marketplace add vineetu/simple-hack-plugin
 /plugin install simple-hack@simple-hack-marketplace
 ```
 
-The connection requires sign-in to Simple Hack; choose **Manage my events** for organiser work. The marketplace source is [vineetu/simple-hack-plugin](https://github.com/vineetu/simple-hack-plugin); it has not been submitted to or approved by the Anthropic directory.
+In the Claude apps without plugins, add the connector instead: open [Claude connectors](https://claude.ai/new?modal=add-custom-connector#customize/connectors/yours), name it Simple Hack, paste `https://simple-hack.app/mcp`, and choose Add.
 
-Source: the maintained `simple-host-website/skills/run-hackathon/` skill and `hack-toolkit/metadata/` in the Simple Host repository. Regenerate from those files for each release. The ten organiser MCP tools are unchanged.
+## Privacy and support
+
+The connector sends tool arguments to simple-hack.app and returns event, team, judging, and site data only within the signed-in person's permissions. Privacy policy: https://simple-hack.app/privacy.html. Terms: https://simple-hack.app/terms.html. Support: support@simple-host.app.
+
+## Source
+
+Generated from [github.com/vineetu/simple-host](https://github.com/vineetu/simple-host) (`hack-toolkit/`). Please open issues there.
+
+MIT licensed. Website: https://simple-hack.app/

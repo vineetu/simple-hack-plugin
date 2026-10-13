@@ -1,8 +1,8 @@
 {
   "name": "simple-hack",
   "displayName": "Simple Hack",
-  "version": "0.1.1",
-  "description": "Run a hackathon on simple-hack.app: create and manage an event, organise teams and judging, and publish team sites with scoped connections.",
+  "version": "0.2.12",
+  "description": "Hackathons, now for everyone. Organise events and judging on simple-hack.app; participants describe their idea and AI builds their team site. No coding needed.",
   "author": {
     "name": "Vineet Sriram",
     "url": "https://simple-hack.app/"
@@ -16,5 +16,9 @@
     "judging",
     "team-sites",
     "mcp"
-  ]
+  ],
+  "icon": "./.claude-plugin/icon.png",
+  "privacyPolicyUrl": "https://simple-hack.app/privacy.html",
+  "termsOfServiceUrl": "https://simple-hack.app/terms.html",
+  "supportUrl": "https://simple-hack.app/support.html"
 }

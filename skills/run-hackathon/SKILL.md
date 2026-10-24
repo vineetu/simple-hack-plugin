@@ -16,6 +16,8 @@ wins, not the best coder; judges use the organiser’s rubric.
 
 Use the Simple Hack connector at `https://simple-hack.app/mcp`. The person signs in through the connector's trusted browser window; if the connection is unavailable, ask them to connect or reconnect it in their app. Never request, receive, read, or transmit an emailed sign-in code, API key, password, passcode, or other credential in chat. Do not use a personal account key or ask for a team key. The connector applies the current person's event role on every call. Use its tool schemas and returned URLs, names, stages, deadlines, and permissions; do not guess identifiers.
 
+This instance's `/auth.md` describes its sign-in methods, connector OAuth, and selected-team publishing. Public capabilities are at `/.well-known/agent-card.json`.
+
 ## Create and manage
 
 1. Ask for the event name, organiser and contact details, purpose, expected count, dates and time zone. Check the name with `hack_check_event_name`, then create a draft with `hack_create_event`. Creation requested here may proceed. Report the returned event URL and stage.
@@ -50,3 +52,5 @@ there is no undo. The address name stays reserved after a participant or judge
 joins; a never-joined event frees it. Read the event and use its returned slug.
 Only after the person confirms, call `hack_delete_event` with `slug` and
 `body: {"confirm":"<slug>"}`. Report success only after the tool succeeds.
+
+Visitor-save notifications use MCP Events with the app's receiver: arguments `{site, storage?}` for the selected team, or `{event, storage?}` for an organiser website. `list_notifications` and `remove_notification` accept that context. Team subscriptions are created before the deadline and deliver while membership stays approved; organiser delivery ends with the event. The team and organiser website screens also manage signed webhooks, tests, history, and rotation. Keep secrets out of chat.

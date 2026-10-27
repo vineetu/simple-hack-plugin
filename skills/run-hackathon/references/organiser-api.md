@@ -79,4 +79,10 @@ For a custom event website, read `hack_get_event_website(slug)` first. Publish w
 
 CSV and private archive exports may be large; the management page is an alternative for downloads. Give a returned private archive link only to the organiser; current membership is checked at download. For another judge's conflict, use the returned `judge_user_id` where the tool accepts it. A team rename changes its display name; keep using the returned slug and site URL.
 
-Before changing a public stage, result, listing, website or invitation link; emailing participants; removing access; deleting; or replacing a scored rubric, explain the effect and ask. A new join or judge link invalidates its predecessor; replacing a scored rubric clears scores/comments; ending an event is final.
+Before changing a public stage, result, listing, website or invitation link; emailing participants; removing access; deleting; or replacing a scored rubric, explain the effect and ask. A new join or judge link invalidates its predecessor; rubric saves keep existing criterion IDs and scores; confirm reported deletions with confirm_score_deletion; ending an event is final.
+
+Automatic assignments default to judges only. Use body.include_organisers=true to include organisers. Judges can save scores only when the stage is closed or judging.
+
+Announcements: `PUT /v1/hack/events/{slug}/announcements/{announcement}` accepts `title` and `body` without resending email. `DELETE` removes it. MCP tools: `hack_edit_announcement` and `hack_delete_announcement`. Ask before deleting.
+
+Website zip uploads also work in the signed-in Page tab, including in draft. The event website GET returns recent versions with dates and upload limits. Static archives need index.html at the root; existing size and file checks apply.
